@@ -1,57 +1,7 @@
-import { EditorState } from '@codemirror/state';
-import { highlightSelectionMatches } from '@codemirror/search';
-import { indentWithTab, history, defaultKeymap, historyKeymap } from '@codemirror/commands';
-import { foldGutter, indentOnInput, indentUnit, bracketMatching, foldKeymap, syntaxHighlighting, defaultHighlightStyle } from '@codemirror/language';
-import { closeBrackets, autocompletion, closeBracketsKeymap, completionKeymap } from '@codemirror/autocomplete';
-import { lineNumbers, highlightActiveLineGutter, highlightSpecialChars, drawSelection, dropCursor, rectangularSelection, crosshairCursor, highlightActiveLine, keymap, EditorView } from '@codemirror/view';
+import {EditorView, basicSetup} from "codemirror"
+import {javascript} from "@codemirror/lang-javascript"
 
-// Theme
-import { oneDark } from "@codemirror/theme-one-dark"
-
-// Language
-import { javascriptLanguage } from "@codemirror/lang-javascript"
-
-function createEditorState(initialContents, options = {}) {
-    let extensions = [
-        lineNumbers(),
-        highlightActiveLineGutter(),
-        highlightSpecialChars(),
-        history(),
-        foldGutter(),
-        drawSelection(),
-        indentUnit.of("    "),
-        EditorState.allowMultipleSelections.of(true),
-        indentOnInput(),
-        bracketMatching(),
-        closeBrackets(),
-        autocompletion(),
-        rectangularSelection(),
-        crosshairCursor(),
-        highlightActiveLine(),
-        highlightSelectionMatches(),
-        keymap.of([
-            indentWithTab,
-            ...closeBracketsKeymap,
-            ...defaultKeymap,
-            ...historyKeymap,
-            ...foldKeymap,
-            ...completionKeymap,
-        ]),
-        javascriptLanguage,
-        syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
-    ]
-
-    if (options.oneDark)
-        extensions.push(oneDark)
-
-    return EditorState.create({
-        doc: initialContents,
-        extensions
-    });
-}
-
-function createEditorView(state, parent) {
-    return new EditorView({ state, parent })
-}
-
-export { createEditorState, createEditorView }
+let editor = new EditorView({
+  extensions: [basicSetup, javascript()],
+  parent: document.body
+})
