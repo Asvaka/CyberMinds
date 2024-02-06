@@ -134,7 +134,7 @@ header {
 
 .section-right {
   float: right;
-  -webkit-text-fill-color: #afc9e0;
+  -webkit-text-fill-color: #ffffff;
 }
 
 .section-left:hover {
@@ -160,7 +160,7 @@ header {
   font-stretch: expanded;
   position: absolute;
   transform: translateX(-50%);
-  top: 35%;
+  top: 40%;
   left: 50%;
   font-family: "True Sans" !important;
   letter-spacing: 0.1em;
@@ -218,14 +218,14 @@ header {
 
 /* Your existing styles here */
 .section2 {
-  margin-top: 3%;
+  margin-top: 1%;
   padding-top: 8%;
   background-color: #141e2b;
   padding: 0.5em;
   position: relative;
   display: flex;
   width: 100%;
-  height: calc(75vh);
+  height: calc(60vh);
   align-items: center;
   justify-content: space-between;
   display: inline-block;
@@ -264,6 +264,8 @@ header {
 
 .section2-title {
   display: flex;
+  margin-top: 1%;
+  padding-top: 0%;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -298,7 +300,7 @@ header {
   align-items: center;
   flex-wrap: nowrap;
   align-self: flex-end;
-  margin-top: 20%;
+  margin-top: 25vh;
 }
 
 .circle-box {
