@@ -1,8 +1,7 @@
-const initialState = editor.createEditorState("function foo() {\n    console.log(123);\n}");
-const view = editor.createEditorView(initialState, document.getElementById("editor"));
+import {editor} from "./editor.bundle.js"
 
-function test() {
-    console.log("Before:\n", view.state.doc.toString())
-    view.dispatch({ changes: { from: 0, insert: "// Programmatically add a comment to the first line\n" } })
-    console.log("After:\n", view.state.doc.toString())
+var tes = editor.state.doc.toString()
+
+  function test() {
+    alert(tes)
 }

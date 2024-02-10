@@ -1,4 +1,4 @@
-(function () {
+let test = (function (exports) {
    'use strict';
 
    /**
@@ -26413,9 +26413,18 @@
        return true;
    });
 
-   new EditorView({
+   let editor = new EditorView({
+     doc: "console.log('hello')\n",
      extensions: [basicSetup, javascript()],
      parent: document.body
    });
 
-})();
+   function testMethod() {
+     return editor.state.doc.toString()
+   }
+
+   exports.testMethod = testMethod;
+
+   return exports;
+
+})({});
