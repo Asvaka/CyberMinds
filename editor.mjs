@@ -1,9 +1,9 @@
 import {basicSetup, EditorView} from "codemirror"
-import {javascript} from "@codemirror/lang-javascript"
+import {python} from "@codemirror/lang-python"
 
 let editor = new EditorView({
-  doc: "console.log('hello')\n",
-  extensions: [basicSetup, javascript()],
+  doc: "print('test')\n",
+  extensions: [basicSetup, python()],
   parent: document.body
 })
 
